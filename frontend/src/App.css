@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #10243e;
+  --navy-light: #1c3a5e;
+  --teal: #0e7c7b;
+  --teal-dark: #0a5f5e;
+  --gold: #c08b2c;
+  --paper: #eef2f1;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --border: #e2e5e4;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(16, 36, 62, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 36, 62, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--navy);
+}
+
+.home-page,
+.result-page,
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-dark);
+  margin-bottom: 0.75rem;
+}
+
+/* ---- Form Card ---- */
+
+.prediction-form {
+  background: var(--card);
+  padding: 2.5rem 2.5rem 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px -12px rgba(16, 36, 62, 0.15);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  position: relative;
+}
+
+.prediction-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+}
+
+.prediction-form h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0.5rem 0 0.25rem;
+  text-align: left;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.prediction-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.prediction-form input,
+.prediction-form select {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+  color: var(--navy);
+  background: #fbfbfa;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.prediction-form input:focus,
+.prediction-form select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 124, 123, 0.15);
+}
+
+.prediction-form button {
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--teal);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.prediction-form button:hover:not(:disabled) {
+  background-color: var(--teal-dark);
+}
+
+.prediction-form button:disabled {
+  background-color: #9fb8b7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #b3261e;
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ---- Result Page ---- */
+
+.result-page {
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  background: var(--card);
+  padding: 3rem 3rem 2.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px -12px rgba(16, 36, 62, 0.15);
+  max-width: 420px;
+  margin: 2rem auto;
+}
+
+.result-page h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.predicted-price {
+  font-family: "Fraunces", serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0.25rem 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.result-page button,
+.not-found-page button {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--gold);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.result-page button:hover,
+.not-found-page button:hover {
+  opacity: 0.88;
+}
+
+.not-found-page {
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.not-found-page h2 {
+  font-family: "Fraunces", serif;
+  font-size: 1.8rem;
+  color: var(--navy);
+}
